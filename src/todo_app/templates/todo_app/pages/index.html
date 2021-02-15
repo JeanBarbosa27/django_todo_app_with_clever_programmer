@@ -1,0 +1,37 @@
+{% extends 'todo_app/base.html' %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col">
+        <h2>Add Item</h2>
+        <form action="{% url 'todo_app:add_todo' %}" method="post" class="row row-cols-lg-auto g-3 align-items-center">
+            {% csrf_token %}
+            <div class="col-10">
+                <input type="text" name="todo_item" class="form-control mb-2 mr-sm-2" placeholder="type here..." />
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col">
+        <ul class="list-group">
+        {% for item in items_list %}
+            <li class="list-group-item">
+                <form
+                    action="{% url 'todo_app:delete_todo' item.id %}"
+                    method="post"
+                    class="row g-3 align-items-center"
+                >
+                    {% csrf_token %}
+                    <span class="col-11">{{item}}</span>
+                    <button type="submit" class="col-1 btn btn-danger">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}

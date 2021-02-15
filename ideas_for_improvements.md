@@ -5,9 +5,9 @@ The idea here is to note what will be done and update the status into parentesis
 Allow users to keep track of things they need to done
 
 ### User stories
-- User can view his/her list of todo items - **todo**
-- User can create a new todo item - **todo**
-- User can delete a todo item - **todo**
+- User can view his/her list of todo items - **done**
+- User can create a new todo item - **done**
+- User can delete a todo item - **done**
 
 ## My ideas
 - Insert login feature using django admin authenication - **todo**
